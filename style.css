@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #292c35;
+  --bg-button: #111;
+  --switch-bg-url: url("./assets/moon.svg");
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+}
+
+.light {
+  --bg-color: #f1f1f1;
+  --bg-button: #111;
+  --switch-bg-url: url("./assets/sun.svg");
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+#switch {
+  position: relative;
+  width: 74px;
+
+  margin: 0px auto;
+  margin-top: 40px;
+}
+
+#switch button {
+  width: 86.31px;
+  height: 86.31px;
+  background: white;
+
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  z-index: 1;
+  transform: translateY(-50%);
+
+  animation: slide-back 0.2s;
+}
+
+.light #switch button {
+  animation: slide-in 0.2s forwards;
+}
+
+#switch span {
+  display: block;
+  width: 235px;
+  height: 102px;
+  background: var(--bg-button) var(--switch-bg-url) no-repeat;
+  background-position: right;
+
+  border-radius: 59px;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+@keyframes slide-in {
+  from {
+    right: 0;
+  }
+  to {
+    right: 60%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    right: 60%;
+  }
+  to {
+    right: 0;
+  }
+}
